@@ -64,11 +64,9 @@ Financial institutions face increasing losses due to transaction fraud, high-ris
 
 ## 🔗 Links  
 
-- 📄 [FraudSight Report (PDF)](FraudSight_Report.pdf)  
-- 📊 [Power BI Dashboards (PDF)](FraudSight_PBI.pdf)  
-- 💡 [Power BI Project File (.pbix)](FraudSight.pbix)  
-- 🧠 [Databricks Notebooks (ZIP)](FraudSight_Notebooks.zip)  
-- 🧾 [Gold-Layer Dataset (CSV)](FraudSight_Gold.csv)  
+- 📄 [FraudSight Final Report (PDF)](FraudSight.pdf)
+- 📊 [Power BI Project File (.pbix)](Phase%202_Visualization%20Part_RECOVERY.pbix)
+- 🧠 [SQL & PySpark Code (ZIP)](SQL_Python_codes.zip) 
 
 ---
 
