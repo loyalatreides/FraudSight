@@ -1,149 +1,84 @@
-🛡️ FraudSight — Financial Fraud Intelligence & Risk Analytics Platform
+# 🛡️ FraudSight — Financial Fraud Intelligence & Risk Analytics Platform  
 
-Author: Kamran Habib
-Tools: Azure Databricks (PySpark + SQL) · Delta Lake · Azure Data Factory · Power BI (DAX)
-Focus: Data Engineering · Fraud Analytics · Business Intelligence · Risk Monitoring
+**Author:** Kamran Habib  
+**Tools:** Azure Databricks (PySpark + SQL) | Delta Lake | Azure Data Factory | Power BI  
+**Focus:** Data Engineering · Fraud Analytics · Business Intelligence  
 
-📌 Business Objective
+---
 
-Banks and payment processors face increasing fraud risk across transactions, merchant networks, and account behaviour.
-FraudSight consolidates raw operational data, engineers a unified risk dataset, and delivers interactive dashboards that help fraud teams:
+## 📌 Business Objective  
+Financial institutions face increasing losses due to transaction fraud, high-risk merchants, and account takeovers.  
+**FraudSight** consolidates raw transaction, merchant, account, and login/device data to detect fraud patterns, identify risky entities, and support proactive fraud investigation through interactive dashboards.
 
-Detect unusual transaction patterns
+---
 
-Identify high-risk merchants & MCC categories
+## ⚙️ Technical Workflow  
 
-Analyse suspicious account behaviour
+| Stage | Platform | Key Tasks |
+|-------|-----------|-----------|
+| **Data Engineering** | Azure Databricks | Ingested raw transaction, merchant, account, and login/device datasets into Bronze layer with schema enforcement. |
+| **Data Transformation** | PySpark + SQL | Cleaned and standardized Silver tables, merged fraud labels, handled nulls, derived fraud & behavioural indicators. |
+| **Analytics Modeling** | Delta Lake | Built Gold tables (`FactTransactions`, `MerchantRisk`, `DailyAccountSummary`, `FactLoginRisk`, `DimAccount`, `DimMerchant`, `DimMCC`, `Date`). |
+| **Pipeline Orchestration** | Azure Data Factory | Designed automated Bronze → Silver → Gold ETL pipelines. |
+| **Visualization** | Power BI | Developed multi-page dashboards (Fraud Overview · Merchant Risk · Account Behaviour · Account Risk Summary). |
 
-Surface device/IP anomalies indicating account takeover
+---
 
-⚙️ Technical Workflow
-Stage	Platform	Key Tasks
-Data Ingestion & Engineering	Azure Databricks	Loaded raw transaction, merchant, account, and login/device datasets into Bronze layer; applied schema enforcement.
-Data Transformation	PySpark + SQL	Cleaned & standardized Silver tables; merged transactions with fraud labels; engineered behavioural & risk features.
-Data Modeling	Delta Lake	Built Gold analytical tables: FactTransactions, MerchantRisk, DailyAccountSummary, FactLoginRisk, DimAccount, DimMerchant, DimMCC, Date.
-Pipeline Orchestration	Azure Data Factory	Designed pipelines to automate Bronze → Silver → Gold transformations.
-Visualization	Power BI	Built a 4-page fraud intelligence dashboard: Overview • Merchant Risk • Account Behaviour • Account Summary.
-📊 Power BI Highlights
-1️⃣ Fraud Overview
+## 📊 Power BI Highlights  
 
-KPIs: Total Transactions, Fraud Transactions, Fraud Rate %, Fraud per 1,000
+- **Fraud Overview:** KPIs (Total Transactions, Fraud Transactions, Fraud Rate %, Fraud per 1,000), fraud vs transaction trend, country-wise fraud distribution.  
+- **Merchant Risk:** Merchant fraud trend, MCC category fraud rates, chargeback ratios, high-risk merchant identification.  
+- **Account Behaviour:** Daily spend vs transaction count, fraud 7-day moving average, behavioural anomaly analysis.  
+- **Account Risk Summary:** Failed logins, MFA failures, unique devices/IPs, rooted device attempts, IP reputation scoring.
 
-Trends: Fraud vs Total Transaction Timeline
+---
 
-Geographic Risk: Country-wise fraud distribution
+## 💡 Key Insights  
 
-Behavioural Indicators: High Amount Fraud · High Velocity Fraud · Night Fraud · New Device Fraud
+| Question | Finding |
+|-----------|----------|
+| Where is fraud concentrated? | Fraud is concentrated in specific countries and MCC categories with elevated fraud rates. |
+| Which merchants are risky? | Certain merchants and MCC groups show recurring fraud and chargeback patterns. |
+| Which accounts are suspicious? | Accounts with high failed logins, MFA failures, and multiple device/IP usage correlate strongly with fraud. |
+| Are there signs of account takeover? | Yes — device/IP anomalies combined with authentication failures are strong indicators. |
 
-2️⃣ Merchant Risk Analysis
+---
 
-Merchant Fraud Trend over time
+## 📈 Business Impact  
 
-MCC Category Fraud Rate
+- Enabled **early detection of fraudulent transaction patterns**  
+- Improved **merchant risk monitoring** and MCC-level segmentation  
+- Strengthened **account takeover detection** using behavioural and device/IP signals  
+- Reduced manual fraud analysis through automated dashboards  
 
-Merchant-level Fraud & Chargeback Rates
+---
 
-Slicers for MCC, Merchant, Country
+## 🧰 Skills Demonstrated  
 
-Identifies persistently high-risk merchants
+- **Data Engineering:** PySpark, Databricks, Delta Lake, Medallion Architecture  
+- **ETL Pipelines:** Bronze–Silver–Gold layering, Azure Data Factory orchestration  
+- **Visualization:** DAX measures, time intelligence, multi-page Power BI reports  
+- **Fraud Analytics:** Transaction anomalies, merchant & MCC risk analysis, account behaviour profiling  
 
-3️⃣ Account Behaviour Analysis
+---
 
-Daily Spend vs Transaction Count
+## 🔗 Links  
 
-Fraud 7-Day Moving Average
+- 📄 [FraudSight Report (PDF)](FraudSight_Report.pdf)  
+- 📊 [Power BI Dashboards (PDF)](FraudSight_PBI.pdf)  
+- 💡 [Power BI Project File (.pbix)](FraudSight.pbix)  
+- 🧠 [Databricks Notebooks (ZIP)](FraudSight_Notebooks.zip)  
+- 🧾 [Gold-Layer Dataset (CSV)](FraudSight_Gold.csv)  
 
-Behavioural anomaly detection
+---
 
-Account activity table with slicers
+## 📅 Next Steps  
 
-4️⃣ Account Risk Summary
+- Add ML-based fraud prediction models (Isolation Forest / Gradient Boosting)  
+- Enable real-time streaming ingestion  
+- Introduce graph analytics for fraud ring detection  
+- Publish dashboards to Power BI Service  
 
-Unique Devices
+---
 
-Unique IPs
-
-Failed Logins
-
-Failed MFA Attempts
-
-Rooted Device Attempts
-
-IP Reputation Score
-
-High-level profile of compromised accounts
-
-💡 Key Insights
-Question	Finding
-Where is fraud happening?	Concentrated in certain countries and MCC categories.
-Which merchants are risky?	Several MCC groups show consistently elevated fraud rates.
-Are accounts behaving abnormally?	Accounts with high failed login activity correlate with higher fraud.
-Are there signs of account takeover?	Multiple devices, multiple IPs, and frequent failed MFA attempts are strong indicators.
-📈 Business Impact
-
-Early detection of transaction anomalies
-
-Merchant risk segmentation for targeted reviews
-
-Improved fraud investigation efficiency using consolidated dashboards
-
-Account takeover detection using device/IP behaviour patterns
-
-Enterprise-ready architecture suitable for scalable fraud systems
-
-🧰 Skills Demonstrated
-Data Engineering
-
-PySpark transformations
-
-Delta Lake Medallion Architecture
-
-SQL-based feature engineering
-
-ETL orchestration with Azure Data Factory
-
-Business Intelligence
-
-Power BI modeling (Star Schema)
-
-40+ DAX measures (fraud KPIs, behaviour metrics, merchant risk)
-
-Multi-page interactive dashboards
-
-Fraud Analytics
-
-Transaction risk indicators
-
-Merchant & MCC fraud patterns
-
-Behavioural anomalies
-
-Device/IP risk scoring
-
-Professional Practices
-
-Modular data engineering approach
-
-Clean semantic modeling
-
-Appendix-style reporting
-
-Executive-ready dashboards
-
-🔗 Links
-
-📄 FraudSight Final Report (PDF)
-📊 Power BI Dashboard Screens (PDF)
-🧠 Power BI Project File (.pbix)
-🧾 Gold-Layer Analytical Dataset (CSV/Delta)
-📁 Databricks Notebooks (ZIP)
-
-📅 Next Steps
-
-Add ML-based fraud prediction (Isolation Forest / XGBoost)
-
-Introduce graph analysis for fraud ring detection
-
-Publish dashboards to Power BI Service for real-time monitoring
-
-Enable streaming ingestion for real-time fraud alerts
+⭐ **If you like this project, star the repo!**
